@@ -76,7 +76,25 @@ const getDoctors = async (req, res) => {
     }
 }
 
+const loginDoctor = async (req, res) =>{
+ try {
+const {phone, password_hash} = req.body;
+const result = await pool.query("SELECT * FROM users WHERE phone = $1 AND password_hash = $2",[phone, password_hash]);
+if(result.rows.length === 0){
+    return res.status(401).json({
+        message: "Invalid credentials",
+      });
+}
+res.json(result.rows[0].id);
+ }catch(err){
+  res.status(500).json({
+    message: err.message,
+  });
+ }
+
+}
 module.exports = {
     registerDoctor,
-    getDoctors
+    getDoctors,
+    loginDoctor
 }

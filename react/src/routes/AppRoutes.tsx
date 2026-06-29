@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 // // Auth
-// import Login from "../pages/auth/Login";
+import Login from "../components/login/Login";
 // import Register from "../pages/auth/Register";
 
 // // Layouts
@@ -37,8 +37,8 @@ const AppRoutes = () => {
    <Route path="/" element={<DashboardPage />} />
    <Route path="/doctor" element={<DoctorTable />} />
    <Route path="/doctor-register" element={<RegisterDoctor />} />
-        {/*  <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} /> */}
+   <Route path="/login" element={<Login />} /> 
+      {/* <Route path="/register" element={<Register />} />  */}
 
       {/* Admin */}
       {/* <Route path="/admin" element={<AdminLayout />}>
